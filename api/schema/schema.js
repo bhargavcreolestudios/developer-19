@@ -3,6 +3,7 @@ const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLInt
 const _ = require('lodash');
 const faker = require('faker');
 
+//  Product modal defination
 const ProductsModal = new GraphQLObjectType({
     name: 'Product',
     fields: {
@@ -14,8 +15,9 @@ const ProductsModal = new GraphQLObjectType({
     },
 });
 
+// Generating static record of products that will be used in API.
 let products = []
-for (var i = 0; i < 1000; i++) {
+for (var i = 0; i < 500000; i++) {
     products.push({
         id: (i+1),
         name: faker.commerce.productName(),
@@ -25,6 +27,11 @@ for (var i = 0; i < 1000; i++) {
     })
 }
 
+/**
+ * Root query defination
+ *
+ * @type       {GraphQLObjectType}
+ */
 const RootQuery = new GraphQLObjectType({
     name: 'RootQueryType',
     fields: {
@@ -46,6 +53,14 @@ const RootQuery = new GraphQLObjectType({
     },
 });
 
+/**
+ * Gets the paginated items.
+ *
+ * @param      {array}   items     The items
+ * @param      {number}  page      The page
+ * @param      {number}  per_page  The per page
+ * @return     {array}   The paginated items.
+ */
 function getPaginatedItems(items, page, per_page) {
     let currentPage = page || 1
     let offset = (page - 1) * per_page

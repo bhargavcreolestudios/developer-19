@@ -22,7 +22,7 @@ export default class Products extends Component{
 
   containerRef = null
 
-  componentDidMount(){
+  componentDidMount =()=>{
     const {from, limit} = this.state
     this.setState({
       loading:true
@@ -36,7 +36,6 @@ export default class Products extends Component{
    *
    * @param      {number}  from    page from
    * @param      {number}  limit   The limit of records
-   * @return     {<type>}  The products.
    */
   getProducts = (from = 1, limit =10) =>{
     axios(builder(from,limit),({products})=>{
@@ -53,6 +52,11 @@ export default class Products extends Component{
           loading:false
         })
       }
+    },(error)=>{
+      this.setState({
+          loaded:true,
+          loading:false
+      })
     })
   }
 
@@ -79,7 +83,7 @@ export default class Products extends Component{
     const loadMore =
       !loading && !loaded ? (
         <LoadDiv>
-          <Button onClick={this.loadMore}>loading more</Button>
+          <Button onClick={this.loadMore}>Load more</Button>
         </LoadDiv>
       ) : null;
 

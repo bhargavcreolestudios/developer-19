@@ -1,6 +1,7 @@
 {
   "name": "create-react-app",
   "version": "0.1.0",
+  "homepage":"/developer19/",
   "scripts": {
     "start": "react-scripts start",
     "start:server": "node api",
