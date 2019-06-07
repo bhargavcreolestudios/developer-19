@@ -1,0 +1,17 @@
+{
+  "name": "demo-graphql",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "4.16.2",
+    "express-graphql": "0.6.11",
+    "faker": "^4.1.0",
+    "graphql": "0.12.3",
+    "lodash": "4.17.4"
+  }
+}
