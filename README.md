@@ -16,7 +16,7 @@ Test assignment for Remote Frontend JavaScript E-commerce Developer
  ```sh
  $ npm run watch:server
  ```
-To start Development server and client. this will start server on port `8080` and client on port `3000`.
+To start Development server and client. this will start server on port `8000` and client on port `3000`.
 ```sh
 $ npm run both
 ```
