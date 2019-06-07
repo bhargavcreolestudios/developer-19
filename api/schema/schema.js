@@ -3,7 +3,7 @@ const { GraphQLObjectType, GraphQLString, GraphQLSchema, GraphQLList, GraphQLInt
 const _ = require('lodash');
 const faker = require('faker');
 
-//  Product modal defination
+// Product modal defination
 const ProductsModal = new GraphQLObjectType({
     name: 'Product',
     fields: {
@@ -61,8 +61,8 @@ const RootQuery = new GraphQLObjectType({
  * @param      {number}  per_page  The per page
  * @return     {array}   The paginated items.
  */
-function getPaginatedItems(items, page, per_page) {
-    let currentPage = page || 1
+const getPaginatedItems = (items =[], page = 1, per_page = 10) => {
+    let currentPage = page
     let offset = (page - 1) * per_page
     let paginatedItems = _.drop(items, offset).slice(0, per_page);
     return paginatedItems;

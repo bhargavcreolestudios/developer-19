@@ -81,9 +81,9 @@ export default class Products extends Component{
     const {products, loading, loaded} = this.state
 
     const loadMore =
-      !loading && !loaded ? (
+      !loaded ? (
         <LoadDiv>
-          <Button onClick={this.loadMore}>Load more</Button>
+          <Button onClick={this.loadMore} loading={loading}>{loading ? 'Loading...' : 'Load more'}</Button>
         </LoadDiv>
       ) : null;
 
@@ -107,7 +107,6 @@ export default class Products extends Component{
           </Breadcrumb>
           <Container ref={(node)=>{this.containerRef = node}}>
           <List
-            loading={loading}
             loadMore={loadMore}
             grid={{
               gutter: 16,
